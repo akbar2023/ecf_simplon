@@ -1,4 +1,4 @@
-package fr.akbarkhan.mediatheque.exception;
+package com.letschat.ecf.exceptions;
 
 public class UserNotFoundException extends RuntimeException {
 

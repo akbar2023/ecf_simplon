@@ -3,7 +3,7 @@ package com.letschat.ecf.dtos;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-public class UserDto {
+public class UserLoginDto {
 
     @Size(min = 5, max = 255)
     @NotBlank
@@ -13,12 +13,12 @@ public class UserDto {
     @NotBlank
     private String password;
 
-    public UserDto(String email, String password) {
+    public UserLoginDto(String email, String password) {
         this.email = email;
         this.password = password;
     }
 
-    public UserDto() {}
+    public UserLoginDto() {}
 
     public String getEmail() {
         return email;
