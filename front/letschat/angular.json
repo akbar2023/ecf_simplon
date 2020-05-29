@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "letschat"
+    }
+  },
+  "defaultProject": "letschat",
+  "cli": {
+    "analytics": false
+  }
 }

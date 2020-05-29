@@ -3,16 +3,27 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
+import {UserApiService} from "./service/user-api.service";
+import {ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
+import { CreateUserComponent } from './create-user/create-user.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    HomeComponent,
+    CreateUserComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [UserApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

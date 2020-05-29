@@ -5,6 +5,9 @@ import java.time.LocalDate;
 
 public class UserDto {
 
+
+    Integer id;
+
     @NotEmpty
     @Size(min = 3, max = 255)
     private String firstName;
@@ -26,12 +29,13 @@ public class UserDto {
     private LocalDate lastKnownPresence;
 
 
-    public UserDto(@NotEmpty @Size(min = 3, max = 255) String firstName,
+    public UserDto(Integer id,@NotEmpty @Size(min = 3, max = 255) String firstName,
                    @NotEmpty @Size(min = 3, max = 255) String lastName,
                    @NotEmpty @Size(min = 3, max = 255) String password,
                    @Email String email,
                    @Past LocalDate birthDate,
                    LocalDate lastKnownPresence) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
@@ -41,6 +45,14 @@ public class UserDto {
     }
 
     public UserDto() {
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getFirstName() {
@@ -93,12 +105,14 @@ public class UserDto {
 
     @Override
     public String toString() {
-        return "UserCreateDto{" +
-                "firstName='" + firstName + '\'' +
+        return "UserDto{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", birthDate=" + birthDate +
+                ", lastKnownPresence=" + lastKnownPresence +
                 '}';
     }
 }

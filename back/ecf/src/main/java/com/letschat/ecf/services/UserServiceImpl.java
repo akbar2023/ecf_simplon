@@ -6,6 +6,8 @@ import com.letschat.ecf.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -13,11 +15,12 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
 
     @Override
-    public UserDto findUserByEmail(String email) {
+    public UserDto findByEmail(String email) {
         User user = userRepository.findByEmail(email);
         UserDto userDto = new UserDto();
         userDto.setEmail(user.getEmail());
         userDto.setPassword(user.getPassword());
+        userDto.setId(user.getId());
         return userDto;
     }
 
@@ -30,6 +33,23 @@ public class UserServiceImpl implements UserService {
         user.setPassword(userDto.getPassword());
         user.setBirthDate(userDto.getBirthDate());
         userRepository.save(user);
-        if(user.getId() != null){ return true; } else {return false; }
+        if(user.getId() != null){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public UserDto findById(Integer id) {
+        User user = userRepository.findById(id).get();
+        UserDto userDto = new UserDto();
+        userDto.setEmail(user.getEmail());
+        userDto.setPassword(user.getPassword());
+        userDto.setFirstName(user.getFirstName());
+        userDto.setLastName(user.getLastName());
+        userDto.setBirthDate(user.getBirthDate());
+        userDto.setLastKnownPresence(user.getLastKnownPresence());
+        return userDto;
     }
 }
