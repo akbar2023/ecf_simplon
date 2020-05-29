@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
     this.service.getProfile().subscribe(result => {
         // Handle result
         console.log(result)
-      debugger
+      // debugger
         this.user = result;
       },
       error => {

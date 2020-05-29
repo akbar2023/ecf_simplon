@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import {HttpClient } from "@angular/common/http";
+import { Observable } from 'rxjs';
 import {UserLogin} from "../models/user-login";
-import {stringify} from "querystring";
 import {User} from "../models/user";
 
 @Injectable({

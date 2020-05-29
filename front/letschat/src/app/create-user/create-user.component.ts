@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {UserApiService} from "../service/user-api.service";
 import {Router} from "@angular/router";
-import {UserLogin} from "../models/user-login";
 import {User} from "../models/user";
 
 @Component({
@@ -14,6 +13,8 @@ export class CreateUserComponent implements OnInit {
 
   signUpForm: FormGroup;
   errors: any;
+
+  message: string;
 
 
   createForm() {
@@ -40,12 +41,13 @@ export class CreateUserComponent implements OnInit {
       firstName: this.signUpForm.value.firstName,
       lastName: this.signUpForm.value.lastName,
       birthDate: this.signUpForm.value.birthDate,
-      lastKnownPresence: null,
+      lastKnownPresence: Date.now().toString(),
     }
     this.service.createUser(user).subscribe(result => {
         // Handle result
         console.log(result)
         // this.service.id = result.body.id;
+      alert("success!")
       },
       error => {
         this.errors = error;

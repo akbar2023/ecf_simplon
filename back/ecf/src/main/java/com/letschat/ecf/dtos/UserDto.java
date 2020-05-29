@@ -1,7 +1,6 @@
 package com.letschat.ecf.dtos;
 
 import javax.validation.constraints.*;
-import java.time.LocalDate;
 
 public class UserDto {
 
@@ -20,21 +19,22 @@ public class UserDto {
     @Size(min = 3, max = 255)
     private String password;
 
-    @Email
+    @NotEmpty
+    @Size(min = 5, max = 255)
     private String email;
 
-    @Past
-    private LocalDate birthDate;
+    @NotEmpty
+    private String birthDate;
 
-    private LocalDate lastKnownPresence;
+    private String lastKnownPresence;
 
 
     public UserDto(Integer id,@NotEmpty @Size(min = 3, max = 255) String firstName,
                    @NotEmpty @Size(min = 3, max = 255) String lastName,
                    @NotEmpty @Size(min = 3, max = 255) String password,
-                   @Email String email,
-                   @Past LocalDate birthDate,
-                   LocalDate lastKnownPresence) {
+                   String email,
+                   String birthDate,
+                   String lastKnownPresence) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -71,15 +71,15 @@ public class UserDto {
         return email;
     }
 
-    public LocalDate getBirthDate() {
+    public String getBirthDate() {
         return birthDate;
     }
 
-    public LocalDate getLastKnownPresence() {
+    public String getLastKnownPresence() {
         return lastKnownPresence;
     }
 
-    public void setLastKnownPresence(LocalDate lastKnownPresence) {
+    public void setLastKnownPresence(String lastKnownPresence) {
         this.lastKnownPresence = lastKnownPresence;
     }
 
@@ -99,7 +99,7 @@ public class UserDto {
         this.email = email;
     }
 
-    public void setBirthDate(LocalDate birthDate) {
+    public void setBirthDate(String birthDate) {
         this.birthDate = birthDate;
     }
 

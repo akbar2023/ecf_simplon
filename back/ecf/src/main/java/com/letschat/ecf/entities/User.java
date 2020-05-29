@@ -1,7 +1,6 @@
 package com.letschat.ecf.entities;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 
 @Entity
 @Table(name = "users")
@@ -24,10 +23,10 @@ public class User {
     private String email;
 
     @Column( nullable = false)
-    private LocalDate birthDate;
+    private String birthDate;
 
     @Column
-    private LocalDate lastKnownPresence;
+    private String lastKnownPresence;
 
 
     public User() {
@@ -74,19 +73,19 @@ public class User {
         this.lastName = lastName;
     }
 
-    public LocalDate getBirthDate() {
+    public String getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(LocalDate birthDate) {
+    public void setBirthDate(String birthDate) {
         this.birthDate = birthDate;
     }
 
-    public LocalDate getLastKnownPresence() {
+    public String getLastKnownPresence() {
         return lastKnownPresence;
     }
 
-    public void setLastKnownPresence(LocalDate lastKnownPresence) {
+    public void setLastKnownPresence(String lastKnownPresence) {
         this.lastKnownPresence = lastKnownPresence;
     }
 
